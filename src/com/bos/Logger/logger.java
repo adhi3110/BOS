@@ -5,7 +5,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class Logger {
+public class logger {
 
 
     public static java.util.logging.Logger logger = java.util.logging.Logger.getLogger("MyLog");
