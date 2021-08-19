@@ -2,7 +2,7 @@ package com.bos.Business;
 import java.time.LocalDate;
 
 
-public class log {
+public class TranferLog {
 
     private IAccount fromAcc;
     private IAccount toAcc;

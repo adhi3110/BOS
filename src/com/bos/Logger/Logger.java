@@ -5,10 +5,10 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class logger {
+public class Logger {
 
 
-    public static Logger logger = Logger.getLogger("MyLog");
+    public static java.util.logging.Logger logger = java.util.logging.Logger.getLogger("MyLog");
     static FileHandler fh;
 
     static {

@@ -1,8 +1,8 @@
 package com.bos.Exceptions;
-import com.bos.Logger.logger;
+import com.bos.Logger.Logger;
 public class InvalidAgeException extends Exception{
     public InvalidAgeException(String msg){
         super(msg);
-        logger.logger.warning(msg);
+        Logger.logger.warning(msg);
     }
 }

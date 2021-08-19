@@ -3,7 +3,6 @@ package com.bos.service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.Scanner;
 
 import com.bos.Business.AccountFactory;
 import com.bos.Business.IAccount;
@@ -100,7 +99,7 @@ public class AccountManager {
         IAccount fromAccount = accounts.get(fromAccNo);
         IAccount toAccount = accounts.get(toAccNo);
 
-        log l = new log();
+        TranferLog l = new TranferLog();
         l.setFromAcc(fromAccount);
         l.setToAcc(toAccount);
         l.setAmt(amt);
@@ -110,14 +109,14 @@ public class AccountManager {
         if(fromAccount.getisActive() && toAccount.getisActive()){
             if(fromAccount.getBalance() >= amt){
                 if(fromAccount.getPinNo() == pin){
-                    if(fromAccount.getPrivilege().getLimit() > amt + logManager.getLimit(LocalDate.now(),fromAccNo)){
+                    if(fromAccount.getPrivilege().getLimit() > amt + TransferLogManager.getLimit(LocalDate.now(),fromAccNo)){
                         fromAccount.withdraw(amt);
                         toAccount.deposit(amt);
-                        logManager.addlog(l);
+                        TransferLogManager.addlog(l);
                         return true;
                     }
                     else
-                        throw new InsuffcientLimitException("Insufficient Limit!!" + "Remaining Limit =>" + (fromAccount.getPrivilege().getLimit() - logManager.getLimit(LocalDate.now(),fromAccNo)) );
+                        throw new InsuffcientLimitException("Insufficient Limit!!" + "Remaining Limit =>" + (fromAccount.getPrivilege().getLimit() - TransferLogManager.getLimit(LocalDate.now(),fromAccNo)) );
                 }
                 else
                     throw new InvalidPinException("Wrong Pin");
