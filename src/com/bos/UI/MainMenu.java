@@ -4,7 +4,7 @@ import com.bos.Exceptions.*;
 //import com.bos.Business.*;
 import com.bos.service.*;
 
-public class inputFile {
+public class MainMenu {
 
     AccountManagerInput acc = new AccountManagerInput();
 
